@@ -6,9 +6,12 @@ game = Game()
 def play_game():
     
     game.greet_user()
-    game.draw_state()
-    game.get_input()
-    game.update_state()
+    while True:
+        game.draw_state()
+        game.get_input()
+        if game.win_ch is not None:
+            break
+
 
 
 if __name__ == '__main__':
