@@ -79,7 +79,7 @@ def my_zip(*iters):
     >>> my_zip('abc', 'def', (1, 2, 3))
     [['a', 'd', 1], ['b', 'e', 2], ['c', 'f', 3]]
     """
-    return reduce(lambda acc, x: [x[i] for x in iters], iters, init=[])
+    return reduce(lambda acc, x: acc + [[m[x] for m in iters]], range(len(iters[0])), init=[])
 
 
 if __name__ == "__main__":
