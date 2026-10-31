@@ -1,0 +1,3 @@
+In most languages, it's possible to treat functions not just as a set of instructions, but as their own thing that can be bound to variables and passed around. This can often enable better program factoring, readability and code reuse.
+
+Recursion is a power tool that will often allow us to write code in a way that closely fits how a problem is expressed. Many structures in computing are nested, so we will often traverse or otherwise process them recursively. It's also a technique where deliberate practice is particularly helpful.
