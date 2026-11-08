@@ -3,15 +3,33 @@ import urllib.request
 
 def fetch(url):
     with urllib.request.urlopen(url) as response:
-        content = response.read().decode('utf-8')
+        content = response.read().decode("utf-8")
         return content
 
 
+def memoize(fn):
+    cache = {}
+
+    def cached_fn(x):
+        if x in cache:
+            return cache[x]
+        result = fn(x)
+        cache[x] = result
+        return result
+
+    return cached_fn
+
+
+@memoize
 def fib(n):
     if n <= 1:
         return n
     return fib(n - 1) + fib(n - 2)
 
 
-if __name__ == '__main__':
-    print(fetch('http://google.com')[:80])
+if __name__ == "__main__":
+    # print(fetch("http://google.com")[:80])
+    # print(fetch("http://google.com")[:80])
+    # print(fetch("http://google.com")[:80])
+    # print(fetch("http://google.com")[:80])
+    print(fib(38))
