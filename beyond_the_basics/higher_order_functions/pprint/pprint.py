@@ -2,7 +2,6 @@ from collections.abc import Iterable
 
 test_list = [1, 2, 3, [4, "inner", ["super inner", ['mega inner'], 5], "less inner than super"], 6]
 
-
 def is_nested(obj):
     if not isinstance(obj, Iterable) or isinstance(obj, (str, bytes)):
         return False
