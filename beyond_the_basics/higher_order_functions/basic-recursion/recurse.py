@@ -139,8 +139,15 @@ def reduce(f, xs, init=None):
     >>> reduce(mirror, ['foo', 'bar'], {})
     {'foo': 'foo', 'bar': 'bar'}
     """
-    if len(xs) == 1:
-        return xs if f(xs[0]) else []
+    def inner(f, xs, acc):
+        if len(xs) == 0:
+            return acc
+        else:
+            return inner(f, xs[1:], f(acc, xs[0]))
+    
+    if init is None:
+        return inner(f, xs[1:], xs[0])
+    return inner(f, xs, init)
     
 
 
