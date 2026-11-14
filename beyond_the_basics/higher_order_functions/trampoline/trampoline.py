@@ -14,8 +14,8 @@ def factorial_rec(n, acc=1):
 
 def fib_rec(n, prev = 0, curr = 1):
     if n == 0:
-        return curr
+        return prev
     else: return(lambda: fib_rec(n - 1, curr, curr + prev))
 
 
-print(trampoline(fib_rec, 5))
+print(trampoline(fib_rec, 6))
